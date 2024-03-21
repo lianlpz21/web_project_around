@@ -26,7 +26,7 @@
 .profile__edit-btn,
 .profile__name {
   display: inline-block;
-  vertical-align: middle; /* Esto es para alinear verticalmente si es necesario */
+  vertical-align: middle;
 }
 
 .profile__occupation {
@@ -41,9 +41,11 @@
   max-width: 24px;
   max-height: 24px;
   margin: 0 0 16px 17px;
+  cursor: pointer;
 }
 
 .profile__add-btn {
   max-width: 150px;
   max-height: 50px;
+  cursor: pointer;
 }
