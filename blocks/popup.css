@@ -4,7 +4,7 @@
   height: 330px;
   padding-bottom: 36px;
   border-radius: 10px;
-  position: absolute;
+  position: fixed;
   width: 100%;
 
   display: none;

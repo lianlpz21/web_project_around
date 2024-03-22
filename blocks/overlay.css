@@ -1,0 +1,14 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 8; /* Asegúrate de que el overlay esté detrás del popup */
+  display: none; /* Por defecto, oculto */
+}
+
+.overlay_opened {
+  display: block;
+}

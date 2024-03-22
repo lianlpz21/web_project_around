@@ -16,6 +16,7 @@
         />
         <span class="header__line"></span>
       </header>
+
       <section class="profile">
         <img
           src="images/avatar.jpg"
@@ -39,16 +40,15 @@
       </section>
 
       <form action="#" class="popup">
-        <!-- poput popup-open -->
         <img src="images/closeicon.svg" alt="cruceta" class="popup__icon" />
         <fieldset class="popup__container">
-          <!-- popup-container-->
           <h3 class="popup__title">Editar perfil</h3>
           <input type="text" placeholder="Nombre" class="popup__input" />
           <input type="text" placeholder="Acerca de mi" class="popup__input" />
           <button type="submit" class="popup__btn">Guardar</button>
         </fieldset>
       </form>
+      <div class="overlay"></div>
 
       <main class="cards">
         <article class="card">
@@ -89,6 +89,7 @@
         <p class="footer__text">&copy; 2020 Mesto Russia</p>
       </footer>
     </div>
+
     <script src="scripts/index.js"></script>
   </body>
 </html>
