@@ -25,7 +25,11 @@
   position: absolute;
   top: 18px;
   right: 15px;
+}
+
+.card__trash:hover {
   cursor: pointer;
+  opacity: 60%;
 }
 
 .card__footer {
@@ -50,5 +54,15 @@
 .card__like {
   width: 21px;
   height: 19px;
+}
+
+.card__like:hover {
   cursor: pointer;
+  opacity: 50%;
+}
+
+@media screen and (max-width: 900px) {
+  .cards {
+    justify-content: center;
+  }
 }
