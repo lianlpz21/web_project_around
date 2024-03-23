@@ -39,12 +39,22 @@
         />
       </section>
 
-      <form action="#" class="popup">
+      <form action="#" class="popup" id="form">
         <img src="images/closeicon.svg" alt="cruceta" class="popup__icon" />
         <fieldset class="popup__container">
           <h3 class="popup__title">Editar perfil</h3>
-          <input type="text" placeholder="Nombre" class="popup__input" />
-          <input type="text" placeholder="Acerca de mi" class="popup__input" />
+          <input
+            id="input__name"
+            type="text"
+            placeholder="Nombre"
+            class="popup__input"
+          />
+          <input
+            id="input__job"
+            type="text"
+            placeholder="Acerca de mi"
+            class="popup__input"
+          />
           <button type="submit" class="popup__btn">Guardar</button>
         </fieldset>
       </form>
