@@ -25,11 +25,8 @@
         />
         <div class="profile__info">
           <h1 class="profile__name">Jacques Cousteau</h1>
-          <img
-            src="images/edit_button.svg"
-            alt="logo de lápiz para editar"
-            class="profile__edit-btn"
-          />
+          <button class="profile__edit-btn"></button>
+
           <p class="profile__occupation">Explorador</p>
         </div>
 
@@ -41,7 +38,7 @@
       </section>
 
       <form action="#" class="popup" id="form">
-        <img src="images/closeicon.svg" alt="cruceta" class="popup__icon" />
+        <button class="popup__icon"></button>
         <fieldset class="popup__container">
           <h3 class="popup__title">Editar perfil</h3>
           <input
@@ -49,12 +46,14 @@
             type="text"
             placeholder="Nombre"
             class="popup__input"
+            required
           />
           <input
             id="input__job"
             type="text"
             placeholder="Acerca de mi"
             class="popup__input"
+            required
           />
           <button type="submit" class="popup__btn">Guardar</button>
         </fieldset>
@@ -63,35 +62,80 @@
 
       <main class="cards">
         <article class="card">
-          <img src="images/kirill.jpg" alt="" class="card__image" />
-          <img src="images/Trash.svg" alt="" class="card__trash" />
+          <img
+            src="images/kirill.jpg"
+            alt="vista de río rodeado por árboles con un fondo montañoso y un día soleado"
+            class="card__image"
+          />
+          <button class="card__trash"></button>
           <footer class="card__footer">
             <h2 class="card__title">Valle de Yosemite</h2>
-            <img src="images/like.svg" alt="" class="card__like" />
+            <button class="card__like"></button>
           </footer>
         </article>
+
         <article class="card">
-          <img src="images/kirill.jpg" alt="" class="card__image" />
-          <img src="images/Trash.svg" alt="" class="card__trash" />
+          <img
+            src="images/kira.jpg"
+            alt="logo de Kira anime death note con la vista de light en fondo obscuro"
+            class="card__image"
+          />
+          <button class="card__trash"></button>
           <footer class="card__footer">
-            <h2 class="card__title">Valle de Yosemite</h2>
-            <img src="images/like.svg" alt="" class="card__like" />
+            <h2 class="card__title">Kira</h2>
+            <button class="card__like"></button>
           </footer>
         </article>
+
         <article class="card">
-          <img src="images/kirill.jpg" alt="" class="card__image" />
-          <img src="images/Trash.svg" alt="" class="card__trash" />
+          <img
+            src="images/deathNote.jpg"
+            alt="light dándole una manzana a ryuk"
+            class="card__image"
+          />
+          <button class="card__trash"></button>
           <footer class="card__footer">
-            <h2 class="card__title">Valle de Yosemite</h2>
-            <img src="images/like.svg" alt="" class="card__like" />
+            <h2 class="card__title">Death Note</h2>
+            <button class="card__like"></button>
           </footer>
         </article>
+
         <article class="card">
-          <img src="images/kirill.jpg" alt="" class="card__image" />
-          <img src="images/Trash.svg" alt="" class="card__trash" />
+          <img
+            src="images/L.jpg"
+            alt="logo de L personaje de death note"
+            class="card__image"
+          />
+          <button class="card__trash"></button>
           <footer class="card__footer">
-            <h2 class="card__title">Valle de Yosemite</h2>
-            <img src="images/like.svg" alt="" class="card__like" />
+            <h2 class="card__title">L</h2>
+            <button class="card__like"></button>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img
+            src="images/prisonSchool.png"
+            alt="personajes de prison school posando en foto de presos"
+            class="card__image"
+          />
+          <button class="card__trash"></button>
+          <footer class="card__footer">
+            <h2 class="card__title">Prison School</h2>
+            <button class="card__like"></button>
+          </footer>
+        </article>
+
+        <article class="card">
+          <img
+            src="images/sasuke.jpg"
+            alt="sasuke de naruto con el mangekyu sharingan"
+            class="card__image"
+          />
+          <button class="card__trash"></button>
+          <footer class="card__footer">
+            <h2 class="card__title">Sasuke</h2>
+            <button class="card__like"></button>
           </footer>
         </article>
       </main>

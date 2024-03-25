@@ -34,14 +34,21 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 21.78px;
-
   margin: 0;
 }
 
 .profile__edit-btn {
-  max-width: 24px;
-  max-height: 24px;
+  background-image: url("../images/edit_button.svg");
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 0 0 16px 17px;
+}
+
+.profile__edit-btn {
   cursor: pointer;
 }
 
@@ -79,6 +86,16 @@
 @media screen and (max-width: 597px) {
   .profile__add-btn {
     max-width: 288px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .profile__name {
+    display: block;
+  }
+  .profile__edit-btn {
+    margin: 0 0 16px 0;
     width: 100%;
   }
 }
