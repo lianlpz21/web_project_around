@@ -46,7 +46,7 @@
   margin: 0 0 16px 17px;
 }
 
-.profile__edit-btn {
+.profile__edit-btn:hover {
   cursor: pointer;
 }
 
