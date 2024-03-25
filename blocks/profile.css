@@ -13,14 +13,12 @@
 
 .profile__info {
   max-width: 414px;
-  /* max-height: 77px; */
 }
 
 .profile__name {
   font-size: 42px;
   font-weight: 500;
   line-height: 56px;
-
   margin: 0 0 16px 0;
 }
 
@@ -53,8 +51,13 @@
 }
 
 .profile__add-btn {
-  max-width: 150px;
-  max-height: 50px;
+  background-image: url("../images/add_button.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 150px;
+  height: 50px;
 }
 
 .profile__add-btn:hover {
