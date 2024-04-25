@@ -9,6 +9,8 @@ const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__occupation");
 const saveBtn = document.querySelector(".popup__btn");
 
+// const profileAddButton = document.querySelector(".profile__add-btn");
+
 function formPopupAdder() {
   popup.classList.add("popup_opened");
   overlay.classList.add("overlay_opened");
@@ -26,6 +28,11 @@ profileEditBtn.addEventListener("click", function () {
 closeBtn.addEventListener("click", () => {
   formPopupRemover();
 });
+
+// profileAddButton.addEventListener("click", () => {
+//   // console.log("click");
+//   formPopupAdder();
+// });
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
