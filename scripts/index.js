@@ -45,3 +45,53 @@ function handleProfileFormSubmit(evt) {
   formPopupRemover();
 }
 form.addEventListener("submit", handleProfileFormSubmit);
+
+//* Initial cards in a array
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
+
+//* Adding initial cards
+const cards = document.querySelector(".cards");
+const template = document.querySelector("#template").content;
+
+initialCards.forEach((card) => {
+  const copy = template.cloneNode(true);
+  const cardImage = copy.querySelector(".card__image");
+  const cardTitle = copy.querySelector(".card__title");
+  cardImage.src = card.link;
+  cardTitle.textContent = card.name;
+
+  cards.appendChild(copy);
+});
+
+//* Like button
+const likeBtns = document.querySelectorAll(".card__like");
+likeBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("card__liked");
+  });
+});

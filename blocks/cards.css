@@ -1,7 +1,7 @@
 .cards {
   padding-top: 50px;
-
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 18px;
 }
@@ -17,8 +17,8 @@
 }
 
 .card__image {
-  width: 100%;
-  min-height: 282px;
+  width: 282px;
+  height: 282px;
   border-radius: 10px 10px 0 0;
 }
 
@@ -74,6 +74,10 @@
 .card__like:hover {
   cursor: pointer;
   opacity: 50%;
+}
+
+.card__liked {
+  background-image: url("../images/liked.svg");
 }
 
 @media screen and (max-width: 900px) {

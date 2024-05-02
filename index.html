@@ -69,8 +69,20 @@
           <button class="popup__btn" type="submit">Crear</button>
         </fieldset>
       </form> -->
+      <main class="cards"></main>
 
-      <main class="cards">
+      <template id="template">
+        <figure class="card">
+          <img class="card__image" />
+          <button class="card__trash"></button>
+          <footer class="card__footer">
+            <figcaption class="card__title"></figcaption>
+            <button class="card__like"></button>
+          </footer>
+        </figure>
+      </template>
+
+      <!-- <main class="cards">
         <article class="card">
           <img
             src="images/kirill.jpg"
@@ -148,7 +160,7 @@
             <button class="card__like"></button>
           </footer>
         </article>
-      </main>
+      </main> -->
 
       <footer class="footer">
         <p class="footer__text">&copy; 2020 Mesto Russia</p>
