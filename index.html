@@ -31,45 +31,58 @@
         <button class="profile__add-btn"></button>
       </section>
 
-      <form action="#" class="popup" id="form">
+      <form class="popup" id="form__edit-opener">
         <button class="popup__icon"></button>
         <fieldset class="popup__container">
           <h3 class="popup__title">Editar perfil</h3>
           <input
+            required
             id="input__name"
             type="text"
             placeholder="Nombre"
             class="popup__input"
             name="name"
-            required
           />
           <input
+            required
             id="input__job"
             type="text"
             placeholder="Acerca de mi"
             class="popup__input"
             name="job"
-            required
           />
           <button type="submit" class="popup__btn">Guardar</button>
         </fieldset>
       </form>
       <div class="overlay"></div>
-      <!-- 
-      <form action="#" class="popup">
+
+      <form action="#" class="popup" id="form__add-cards-opener">
         <button class="popup__icon"></button>
         <fieldset class="popup__container">
           <h3 class="popup__title">Nuevo lugar</h3>
-          <input class="popup__input" type="text" placeholder="Título" />
           <input
+            required
+            id="input__title"
+            class="popup__input"
+            type="text"
+            placeholder="Título"
+          />
+          <input
+            required
+            id="input__image"
             class="popup__input"
             type="text"
             placeholder="Enlace a la imagen"
           />
           <button class="popup__btn" type="submit">Crear</button>
         </fieldset>
-      </form> -->
+      </form>
       <main class="cards"></main>
+
+      <dialog id="modal">
+        <img class="modal__image" />
+        <span id="modal-title"></span>
+      </dialog>
 
       <template id="template">
         <figure class="card">
@@ -81,87 +94,6 @@
           </footer>
         </figure>
       </template>
-
-      <!-- <main class="cards">
-        <article class="card">
-          <img
-            src="images/kirill.jpg"
-            alt="vista de río rodeado por árboles con un fondo montañoso y un día soleado"
-            class="card__image"
-          />
-          <button class="card__trash"></button>
-          <footer class="card__footer">
-            <h2 class="card__title">Valle de Yosemite</h2>
-            <button class="card__like"></button>
-          </footer>
-        </article>
-
-        <article class="card">
-          <img
-            src="images/kira.jpg"
-            alt="logo de Kira anime death note con la vista de light en fondo obscuro"
-            class="card__image"
-          />
-          <button class="card__trash"></button>
-          <footer class="card__footer">
-            <h2 class="card__title">Kira</h2>
-            <button class="card__like"></button>
-          </footer>
-        </article>
-
-        <article class="card">
-          <img
-            src="images/deathNote.jpg"
-            alt="light dándole una manzana a ryuk"
-            class="card__image"
-          />
-          <button class="card__trash"></button>
-          <footer class="card__footer">
-            <h2 class="card__title">Death Note</h2>
-            <button class="card__like"></button>
-          </footer>
-        </article>
-
-        <article class="card">
-          <img
-            src="images/L.jpg"
-            alt="logo de L personaje de death note"
-            class="card__image"
-          />
-          <button class="card__trash"></button>
-          <footer class="card__footer">
-            <h2 class="card__title">L</h2>
-            <button class="card__like"></button>
-          </footer>
-        </article>
-
-        <article class="card">
-          <img
-            src="images/prisonSchool.png"
-            alt="personajes de prison school posando en foto de presos"
-            class="card__image"
-          />
-          <button class="card__trash"></button>
-          <footer class="card__footer">
-            <h2 class="card__title">Prison School</h2>
-            <button class="card__like"></button>
-          </footer>
-        </article>
-
-        <article class="card">
-          <img
-            src="images/sasuke.jpg"
-            alt="sasuke de naruto con el mangekyu sharingan"
-            class="card__image"
-          />
-          <button class="card__trash"></button>
-          <footer class="card__footer">
-            <h2 class="card__title">Sasuke</h2>
-            <button class="card__like"></button>
-          </footer>
-        </article>
-      </main> -->
-
       <footer class="footer">
         <p class="footer__text">&copy; 2020 Mesto Russia</p>
       </footer>
