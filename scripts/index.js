@@ -2,16 +2,15 @@
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const addBtn = document.querySelector(".profile__add-btn");
 const closeBtn = document.querySelectorAll(".popup__icon");
-
 const editFormOpener = document.querySelector("#form__edit-opener");
 const addFormOpener = document.querySelector("#form__add-cards-opener");
-
 const overlay = document.querySelector(".overlay");
 const inputName = document.querySelector("#input__name");
 const inputJob = document.querySelector("#input__job");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__occupation");
 const saveBtn = document.querySelector(".popup__btn");
+const closeIcon = document.querySelector(".modal__icon-close");
 
 function formPopupAdder(popup) {
   popup.classList.add("popup_opened");
@@ -107,8 +106,6 @@ initialCards.forEach((card) => {
     deleteCardBtn.parentElement.remove();
   });
 
-  //* Bigger image
-
   cards.appendChild(copy);
 });
 
@@ -135,22 +132,32 @@ addFormOpener.addEventListener("submit", (evt) => {
 
   inputTitle.value = "";
   inputImage.value = "";
+
+  //* Agregar evento de clic para agrandar la imagen en modal
+  cardImage.addEventListener("click", () => {
+    const imageModal = modal.querySelector(".modal__image");
+    const titleModal = modal.querySelector(".modal__title");
+    imageModal.src = cardImage.src;
+    titleModal.textContent = cardTitle.textContent;
+    modal.showModal();
+  });
 });
 
 //* Get bigger image after clicking
-// const card = document.querySelectorAll(".card");
-// const modal = document.querySelector("#modal");
-// const modalImage = modal.querySelector(".modal__image");
+const images = cards.querySelectorAll(".card__image");
+const title = cards.querySelectorAll(".card__title");
+const modal = document.querySelector("#modal");
+images.forEach((image, index) => {
+  image.addEventListener("click", () => {
+    const imageModal = modal.querySelector(".modal__image");
+    const titleModal = modal.querySelector(".modal__title");
+    imageModal.src = image.src;
+    titleModal.textContent = initialCards[index].name;
+    modal.showModal();
+  });
+});
 
-// card.forEach((card) => {
-//   card.addEventListener("click", (evt) => {
-//     const clickedImage = evt.currentTarget;
-//     const image = clickedImage.querySelector(".card__image");
-//     const copy = template.cloneNode(true);
-//     const cardImage = copy.querySelector(".card__image");
-//     const openModal = modal.show(copy);
-
-//     clickedImage.value = cardImage.src;
-//     modal.appendChild(copy);
-//   });
-// });
+//* Close modal window
+closeIcon.addEventListener("click", () => {
+  modal.close();
+});
