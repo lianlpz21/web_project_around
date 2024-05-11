@@ -1,4 +1,3 @@
-// const popup = document.querySelector(".popup");
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const addBtn = document.querySelector(".profile__add-btn");
 const closeBtn = document.querySelectorAll(".popup__icon");
@@ -118,6 +117,7 @@ addFormOpener.addEventListener("submit", (evt) => {
   const cardTitle = copy.querySelector(".card__title");
   const inputImage = document.querySelector("#input__image");
   const inputTitle = document.querySelector("#input__title");
+  const likeBtn = copy.querySelector(".card__like");
   cardImage.src = inputImage.value;
   cardTitle.textContent = inputTitle.value;
 
@@ -133,7 +133,7 @@ addFormOpener.addEventListener("submit", (evt) => {
   inputTitle.value = "";
   inputImage.value = "";
 
-  //* Agregar evento de clic para agrandar la imagen en modal
+  //* Get bigger image after clicking images added
   cardImage.addEventListener("click", () => {
     const imageModal = modal.querySelector(".modal__image");
     const titleModal = modal.querySelector(".modal__title");
@@ -141,9 +141,14 @@ addFormOpener.addEventListener("submit", (evt) => {
     titleModal.textContent = cardTitle.textContent;
     modal.showModal();
   });
+
+  //* Like button
+  likeBtn.addEventListener("click", () => {
+    likeBtn.classList.toggle("card__liked");
+  });
 });
 
-//* Get bigger image after clicking
+//* Get bigger image after clicking images that already exist
 const images = cards.querySelectorAll(".card__image");
 const title = cards.querySelectorAll(".card__title");
 const modal = document.querySelector("#modal");
