@@ -151,7 +151,7 @@ addFormOpener.addEventListener("submit", (evt) => {
 //* Get bigger image after clicking images that already exist
 const images = cards.querySelectorAll(".card__image");
 const title = cards.querySelectorAll(".card__title");
-const modal = document.querySelector("#modal");
+const modal = document.querySelector(".modal");
 images.forEach((image, index) => {
   image.addEventListener("click", () => {
     const imageModal = modal.querySelector(".modal__image");
