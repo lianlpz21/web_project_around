@@ -43,6 +43,8 @@
             class="popup__input"
             name="name"
             autocomplete="given-name"
+            minlength="2"
+            maxlength="40"
           />
           <input
             required
@@ -52,6 +54,8 @@
             class="popup__input"
             name="job"
             autocomplete="current-job"
+            minlength="2"
+            maxlength="400"
           />
           <button type="submit" class="popup__btn">Guardar</button>
         </fieldset>
@@ -70,12 +74,14 @@
             placeholder="Titulo"
             name="title"
             autocomplete="image-title"
+            minlength="2"
+            maxlength="30"
           />
           <input
             required
             id="input__image"
             class="popup__input"
-            type="text"
+            type="url"
             placeholder="Enlace a la imagen"
             name="url"
             autocomplete="image-url"
