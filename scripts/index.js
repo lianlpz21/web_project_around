@@ -45,29 +45,22 @@ editFormOpener.addEventListener("submit", (evt) => {
   profileName.textContent = nameOutput;
   profileJob.textContent = jobOutput;
 
-  // if (nameOutput === "" && jobOutput === "") {
-  //   profileName.textContent = "Jacques Cousteau";
-  //   profileJob.textContent = "Explorador";
-  // }
-
   formPopupRemover(editFormOpener);
 });
-// function handleProfileFormSubmit(evt) {
-//   evt.preventDefault();
 
-//   let nameOutput = inputName.value;
-//   let jobOutput = inputJob.value;
-//   profileName.textContent = nameOutput;
-//   profileJob.textContent = jobOutput;
+editFormOpener.addEventListener("input", (evt) => {
+  const nameInput = document.querySelector("#input__name");
+  const nameError = document.querySelector(".input__error");
+  const userName = nameInput.value;
 
-//   if (nameOutput === "" && jobOutput === "") {
-//     profileName.textContent = "Jacques Cousteau";
-//     profileJob.textContent = "Explorador";
-//   }
-
-//   formPopupRemover(editFormOpener);
-// }
-// editFormOpener.addEventListener("submit", handleProfileFormSubmit);
+  if (userName.length < 1) {
+    nameError.textContent = "Please fill out this field.";
+    nameInput.classList.add("input-error");
+  } else {
+    nameError.textContent = "";
+    nameInput.classList.remove("input-error");
+  }
+});
 
 //* Initial cards in a array
 const initialCards = [
