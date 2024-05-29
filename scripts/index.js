@@ -37,7 +37,7 @@ closeBtn.forEach((btn) => {
 });
 
 //* Sending personal info in form
-function handleProfileFormSubmit(evt) {
+editFormOpener.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
   let nameOutput = inputName.value;
@@ -45,14 +45,29 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = nameOutput;
   profileJob.textContent = jobOutput;
 
-  if (nameOutput === "" && jobOutput === "") {
-    profileName.textContent = "Jacques Cousteau";
-    profileJob.textContent = "Explorador";
-  }
+  // if (nameOutput === "" && jobOutput === "") {
+  //   profileName.textContent = "Jacques Cousteau";
+  //   profileJob.textContent = "Explorador";
+  // }
 
   formPopupRemover(editFormOpener);
-}
-editFormOpener.addEventListener("submit", handleProfileFormSubmit);
+});
+// function handleProfileFormSubmit(evt) {
+//   evt.preventDefault();
+
+//   let nameOutput = inputName.value;
+//   let jobOutput = inputJob.value;
+//   profileName.textContent = nameOutput;
+//   profileJob.textContent = jobOutput;
+
+//   if (nameOutput === "" && jobOutput === "") {
+//     profileName.textContent = "Jacques Cousteau";
+//     profileJob.textContent = "Explorador";
+//   }
+
+//   formPopupRemover(editFormOpener);
+// }
+// editFormOpener.addEventListener("submit", handleProfileFormSubmit);
 
 //* Initial cards in a array
 const initialCards = [
