@@ -52,9 +52,14 @@ editFormOpener.addEventListener("input", (evt) => {
   const nameInput = document.querySelector("#input__name");
   const nameError = document.querySelector(".input__error");
   const userName = nameInput.value;
+  const minLength = 2;
 
   if (userName.length < 1) {
-    nameError.textContent = "Please fill out this field.";
+    nameError.textContent = "Por favor, completa este campo.";
+    nameInput.classList.add("input-error");
+  } else if (userName.length < minLength) {
+    const remaining = minLength - userName.length;
+    nameError.textContent = `El nombre de usuario debe tener al menos ${minLength} caracteres. Faltan ${remaining} caracteres.`;
     nameInput.classList.add("input-error");
   } else {
     nameError.textContent = "";
