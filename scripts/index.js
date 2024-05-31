@@ -169,3 +169,41 @@ closeIcon.addEventListener("click", () => {
 modal.addEventListener("click", (evt) => {
   modal.close();
 });
+
+//! validate profile form
+// const inputName = document.querySelector("#input__name");
+// const inputJob = document.querySelector("#input__job");
+const nameError = document.querySelector("#input__name-error");
+inputName.addEventListener("click", () => {});
+//*VALIDATE NAME
+inputName.addEventListener("input", () => {
+  const nameValue = inputName.value;
+  const minLength = 2;
+  if (nameValue.length < minLength) {
+    nameError.classList.add("error-active");
+    nameError.textContent = "Por favor, rellena este campo.";
+  } else {
+    nameError.classList.remove("error-active");
+  }
+  if (nameValue.length === 1) {
+    nameError.classList.add("error-active");
+    nameError.textContent = "El nombre debe tener al menos 2 carácteres.";
+  }
+});
+
+//*VALIDATE JOB
+const jobError = document.querySelector("#input__job-error");
+inputJob.addEventListener("input", () => {
+  const jobValue = inputJob.value;
+  const minLength = 2;
+  if (jobValue.length < minLength) {
+    jobError.classList.add("error-active");
+    jobError.textContent = "Por favor, rellena este campo.";
+  } else {
+    jobError.classList.remove("error-active");
+  }
+  if (jobValue.length === 2) {
+    jobError.classList.add("error-active");
+    jobError.textContent = "Su trabajo debe tener al menos 2 carácteres.";
+  }
+});
