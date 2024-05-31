@@ -8,6 +8,10 @@
   height: 540px;
 }
 
+.modal:hover {
+  cursor: pointer;
+}
+
 .modal::backdrop {
   background-color: rgba(0, 0, 0, 0.6);
 }

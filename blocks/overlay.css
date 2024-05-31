@@ -12,3 +12,7 @@
 .overlay_opened {
   display: block;
 }
+
+.overlay_opened:hover {
+  cursor: pointer;
+}
