@@ -21,30 +21,6 @@ function formPopupRemover(popup) {
   overlay.classList.remove("overlay_opened");
 }
 
-function showError(input, messageElement, message) {
-  messageElement.textContent = message;
-  input.classList.add("input-error");
-}
-
-function validateInput(input, minLength, errorElement) {
-  const value = input.value.trim();
-  if (value === "") {
-    showError(input, errorElement, "Campo vacío. Por favor, ingresa un valor.");
-    return false;
-  } else if (value.length < minLength) {
-    const remaining = minLength - value.length;
-    showError(
-      input,
-      errorElement,
-      `Debe tener al menos ${minLength} caracteres. Faltan ${remaining}.`
-    );
-    return false;
-  } else {
-    clearError(input, errorElement);
-    return true;
-  }
-}
-
 profileEditBtn.addEventListener("click", function () {
   formPopupAdder(editFormOpener);
 });
