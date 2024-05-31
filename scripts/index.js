@@ -36,6 +36,12 @@ closeBtn.forEach((btn) => {
   });
 });
 
+//! Closing after clicking outside the popups
+overlay.addEventListener("click", (evt) => {
+  formPopupRemover(editFormOpener);
+  formPopupRemover(addFormOpener);
+});
+
 //* Sending personal info in form
 editFormOpener.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -45,29 +51,8 @@ editFormOpener.addEventListener("submit", (evt) => {
   profileName.textContent = nameOutput;
   profileJob.textContent = jobOutput;
 
-  // if (nameOutput === "" && jobOutput === "") {
-  //   profileName.textContent = "Jacques Cousteau";
-  //   profileJob.textContent = "Explorador";
-  // }
-
   formPopupRemover(editFormOpener);
 });
-// function handleProfileFormSubmit(evt) {
-//   evt.preventDefault();
-
-//   let nameOutput = inputName.value;
-//   let jobOutput = inputJob.value;
-//   profileName.textContent = nameOutput;
-//   profileJob.textContent = jobOutput;
-
-//   if (nameOutput === "" && jobOutput === "") {
-//     profileName.textContent = "Jacques Cousteau";
-//     profileJob.textContent = "Explorador";
-//   }
-
-//   formPopupRemover(editFormOpener);
-// }
-// editFormOpener.addEventListener("submit", handleProfileFormSubmit);
 
 //* Initial cards in a array
 const initialCards = [
@@ -179,5 +164,8 @@ images.forEach((image, index) => {
 
 //* Close modal window
 closeIcon.addEventListener("click", () => {
+  modal.close();
+});
+modal.addEventListener("click", (evt) => {
   modal.close();
 });
