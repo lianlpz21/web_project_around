@@ -64,8 +64,7 @@
 }
 
 .popup__btn {
-  background-color: black;
-  color: white;
+  color: grey;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.78px;
@@ -73,9 +72,18 @@
   height: 50px;
 }
 
-.popup__btn:hover {
+/* .popup__btn:hover {
   cursor: pointer;
   opacity: 80%;
+} */
+
+.popup__btn-active {
+  background-color: black;
+  color: white;
+}
+.popup__btn-active:hover {
+  opacity: 50%;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 597px) {

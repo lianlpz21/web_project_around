@@ -59,7 +59,7 @@
             maxlength="400"
           />
           <span class="error-message" id="input__job-error"></span>
-          <button type="submit" class="popup__btn">Guardar</button>
+          <button disabled type="submit" class="popup__btn">Guardar</button>
         </fieldset>
       </form>
       <div class="overlay"></div>
@@ -79,6 +79,7 @@
             minlength="2"
             maxlength="30"
           />
+          <span class="error-message" id="input__title-error"></span>
           <input
             required
             id="input__image"
@@ -88,7 +89,8 @@
             name="url"
             autocomplete="image-url"
           />
-          <button class="popup__btn" type="submit">Crear</button>
+          <span class="error-message" id="input__url-error"></span>
+          <button disabled class="popup__btn" type="submit">Crear</button>
         </fieldset>
       </form>
 

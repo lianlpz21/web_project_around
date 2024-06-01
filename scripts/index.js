@@ -11,6 +11,9 @@ const profileJob = document.querySelector(".profile__occupation");
 const saveBtn = document.querySelector(".popup__btn");
 const closeIcon = document.querySelector(".modal__icon-close");
 
+const inputTitle = document.querySelector("#input__title");
+const inputImage = document.querySelector("#input__image");
+
 function formPopupAdder(popup) {
   popup.classList.add("popup_opened");
   overlay.classList.add("overlay_opened");
@@ -115,8 +118,6 @@ addFormOpener.addEventListener("submit", (evt) => {
   const copy = template.cloneNode(true);
   const cardImage = copy.querySelector(".card__image");
   const cardTitle = copy.querySelector(".card__title");
-  const inputImage = document.querySelector("#input__image");
-  const inputTitle = document.querySelector("#input__title");
   const likeBtn = copy.querySelector(".card__like");
   cardImage.src = inputImage.value;
   cardTitle.textContent = inputTitle.value;
@@ -171,10 +172,22 @@ modal.addEventListener("click", (evt) => {
 });
 
 //! validate profile form
-// const inputName = document.querySelector("#input__name");
-// const inputJob = document.querySelector("#input__job");
 const nameError = document.querySelector("#input__name-error");
-inputName.addEventListener("click", () => {});
+const isNameValid = inputName.value.length >= 2;
+const isJobValid = inputName.value.length >= 2;
+
+function validateProfile() {
+  const isNameValid = inputName.value.length >= 2;
+  const isJobValid = inputJob.value.length >= 2;
+
+  if (isNameValid && isJobValid) {
+    saveBtn.classList.add("popup__btn-active");
+    saveBtn.disabled = false;
+  } else {
+    saveBtn.classList.remove("popup__btn-active");
+    saveBtn.disabled = true;
+  }
+}
 //*VALIDATE NAME
 inputName.addEventListener("input", () => {
   const nameValue = inputName.value;
@@ -189,6 +202,7 @@ inputName.addEventListener("input", () => {
     nameError.classList.add("error-active");
     nameError.textContent = "El nombre debe tener al menos 2 carácteres.";
   }
+  validateProfile();
 });
 
 //*VALIDATE JOB
@@ -201,9 +215,59 @@ inputJob.addEventListener("input", () => {
     jobError.textContent = "Por favor, rellena este campo.";
   } else {
     jobError.classList.remove("error-active");
+    saveBtn.classList.add("popup__btn-active");
   }
-  if (jobValue.length === 2) {
+  if (jobValue.length === 1) {
     jobError.classList.add("error-active");
     jobError.textContent = "Su trabajo debe tener al menos 2 carácteres.";
   }
+  validateProfile();
 });
+
+// //! Validate add cards form
+// function validateCards() {
+//   const isTitleValid = inputName.value.length >= 2;
+//   const isUrlValid = inputJob.value.length >= 2;
+
+//   if (isTitleValid && isUrlValid) {
+//     saveBtn.classList.add("popup__btn-active");
+//     saveBtn.disabled = false;
+//   } else {
+//     saveBtn.classList.remove("popup__btn-active");
+//     saveBtn.disabled = true;
+//   }
+// }
+// const titleError = document.querySelector("#input__title-error");
+// inputTitle.addEventListener("input", () => {
+//   const titleValue = inputTitle.value;
+//   const minLength = 2;
+//   if (titleValue.length < minLength) {
+//     titleError.classList.add("error-active");
+//     titleError.textContent = "Por favor, rellena este campo.";
+//   } else {
+//     titleError.classList.remove("error-active");
+//     saveBtn.classList.add("popup__btn-active");
+//   }
+//   if (titleValue.length === 1) {
+//     titleError.classList.add("error-active");
+//     titleError.textContent = "Su trabajo debe tener al menos 2 carácteres.";
+//   }
+//   validateCards();
+// });
+// inputImage.addEventListener("input", () => {
+//   const urlError = document.querySelector("#input__url-error");
+//   const imageValue = inputTitle.value;
+//   const minLength = 2;
+//   if (imageValue.length < minLength) {
+//     urlError.classList.add("error-active");
+//     urlError.textContent = "Por favor, rellena este campo.";
+//   } else {
+//     urlError.classList.remove("error-active");
+//     saveBtn.classList.add("popup__btn-active");
+//   }
+//   if (imageValue.length === 1) {
+//     urlError.classList.add("error-active");
+//     urlError.textContent = "Su trabajo debe tener al menos 2 carácteres.";
+//   }
+//   validateCards();
+// });
