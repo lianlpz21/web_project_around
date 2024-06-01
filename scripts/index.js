@@ -224,50 +224,51 @@ inputJob.addEventListener("input", () => {
   validateProfile();
 });
 
-// //! Validate add cards form
-// function validateCards() {
-//   const isTitleValid = inputName.value.length >= 2;
-//   const isUrlValid = inputJob.value.length >= 2;
+//! Validate add cards form
+const titleError = document.querySelector("#input__title-error");
+const urlError = document.querySelector("#input__url-error");
+const addCardBtn = document.querySelector(
+  "#form__add-cards-opener .popup__btn"
+);
 
-//   if (isTitleValid && isUrlValid) {
-//     saveBtn.classList.add("popup__btn-active");
-//     saveBtn.disabled = false;
-//   } else {
-//     saveBtn.classList.remove("popup__btn-active");
-//     saveBtn.disabled = true;
-//   }
-// }
-// const titleError = document.querySelector("#input__title-error");
-// inputTitle.addEventListener("input", () => {
-//   const titleValue = inputTitle.value;
-//   const minLength = 2;
-//   if (titleValue.length < minLength) {
-//     titleError.classList.add("error-active");
-//     titleError.textContent = "Por favor, rellena este campo.";
-//   } else {
-//     titleError.classList.remove("error-active");
-//     saveBtn.classList.add("popup__btn-active");
-//   }
-//   if (titleValue.length === 1) {
-//     titleError.classList.add("error-active");
-//     titleError.textContent = "Su trabajo debe tener al menos 2 carácteres.";
-//   }
-//   validateCards();
-// });
-// inputImage.addEventListener("input", () => {
-//   const urlError = document.querySelector("#input__url-error");
-//   const imageValue = inputTitle.value;
-//   const minLength = 2;
-//   if (imageValue.length < minLength) {
-//     urlError.classList.add("error-active");
-//     urlError.textContent = "Por favor, rellena este campo.";
-//   } else {
-//     urlError.classList.remove("error-active");
-//     saveBtn.classList.add("popup__btn-active");
-//   }
-//   if (imageValue.length === 1) {
-//     urlError.classList.add("error-active");
-//     urlError.textContent = "Su trabajo debe tener al menos 2 carácteres.";
-//   }
-//   validateCards();
-// });
+function validateAddCardForm() {
+  const isTitleValid = inputTitle.value.length >= 2;
+  const isUrlValid = inputImage.validity.valid;
+
+  if (isTitleValid && isUrlValid) {
+    addCardBtn.classList.add("popup__btn-active");
+    addCardBtn.disabled = false;
+  } else {
+    addCardBtn.classList.remove("popup__btn-active");
+    addCardBtn.disabled = true;
+  }
+}
+
+//*VALIDATE TITLE
+inputTitle.addEventListener("input", () => {
+  const titleValue = inputTitle.value;
+  const minLength = 2;
+  if (titleValue.length < minLength) {
+    titleError.classList.add("error-active");
+    titleError.textContent = "Por favor, rellena este campo.";
+  } else {
+    titleError.classList.remove("error-active");
+  }
+  if (titleValue.length === 1) {
+    titleError.classList.add("error-active");
+    titleError.textContent = "El título debe tener al menos 2 carácteres.";
+  }
+  validateAddCardForm();
+});
+
+//*VALIDATE URL
+inputImage.addEventListener("input", () => {
+  if (!inputImage.validity.valid) {
+    urlError.classList.add("error-active");
+    urlError.textContent = "Por favor, ingrese una URL válida.";
+  } else {
+    urlError.classList.remove("error-active");
+    addCardBtn.classList.add("popup__btn-active");
+  }
+  validateAddCardForm();
+});
