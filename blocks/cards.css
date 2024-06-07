@@ -78,7 +78,8 @@
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;
-  width: 21px;
+  min-width: 30px;
+  width: 30px;
   height: 19px;
 }
 
