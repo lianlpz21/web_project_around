@@ -129,7 +129,7 @@ addFormOpener.addEventListener("submit", (evt) => {
     deleteCardBtn.parentElement.remove();
   });
 
-  cards.appendChild(copy);
+  cards.insertBefore(copy, cards.firstChild);
 
   inputTitle.value = "";
   inputImage.value = "";
