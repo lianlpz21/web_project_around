@@ -1,6 +1,10 @@
 import Card from "./Card.js";
-// import FormValidator from "./FormValidator.js";
-import { closeModalWindow, formPopupAdder, formPopupRemover } from "./utils.js";
+import {
+  closeModalWindow,
+  formPopupAdder,
+  formPopupRemover,
+  initialCards,
+} from "./utils.js";
 
 // Selección de elementos del DOM
 const profileEditBtn = document.querySelector(".profile__edit-btn");
@@ -29,11 +33,13 @@ closeBtns.forEach((btn) =>
   })
 );
 
+//* Closing after clicking outside the popups
 overlay.addEventListener("click", () => {
   formPopupRemover(editFormOpener);
   formPopupRemover(addFormOpener);
 });
 
+//* Sending personal info in form
 editFormOpener.addEventListener("submit", (evt) => {
   evt.preventDefault();
   profileName.textContent = inputName.value;
@@ -41,35 +47,7 @@ editFormOpener.addEventListener("submit", (evt) => {
   formPopupRemover(editFormOpener);
 });
 
-//* Initias cards data
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-];
-
-//* Adding initial cards
+//* Adding initial cards in the DOM
 const cardsContainer = document.querySelector(".cards");
 const templateSelector = "#template";
 function addInitialCards(cardsData) {

@@ -12,37 +12,35 @@ export default class Card {
     return template.cloneNode(true);
   }
 
-  generateCard() {
-    this._element = this._getTemplate();
-    this._element.querySelector(".card__image").src = this._link;
-    this._element.querySelector(".card__image").alt = this._name;
-    this._element.querySelector(".card__title").textContent = this._name;
-    this._setEventListeners();
-    return this._element;
-  }
-
   _setEventListeners() {
-    this._element.querySelector(".card__like").addEventListener("click", () => {
-      this._element
-        .querySelector(".card__like")
-        .classList.toggle("card__liked");
+    //* Like event
+    this._card.querySelector(".card__like").addEventListener("click", () => {
+      this._card.querySelector(".card__like").classList.toggle("card__liked");
     });
 
-    this._element
-      .querySelector(".card__trash")
-      .addEventListener("click", () => {
-        this._element.remove();
-      });
+    //* Delete cards
+    this._card.querySelector(".card__trash").addEventListener("click", () => {
+      this._card.remove();
+    });
 
-    this._element
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        const modal = document.querySelector(".modal");
-        const imageModal = modal.querySelector(".modal__image");
-        const titleModal = modal.querySelector(".modal__title");
-        imageModal.src = this._link;
-        titleModal.textContent = this._name;
-        modal.showModal();
-      });
+    //* Open image after click
+    this._card.querySelector(".card__image").addEventListener("click", () => {
+      const modal = document.querySelector(".modal");
+      const imageModal = modal.querySelector(".modal__image");
+      const titleModal = modal.querySelector(".modal__title");
+      imageModal.src = this._link;
+      titleModal.textContent = this._name;
+      modal.showModal();
+    });
+  }
+
+  //* Generate initial cards
+  generateCard() {
+    this._card = this._getTemplate();
+    this._card.querySelector(".card__image").src = this._link;
+    this._card.querySelector(".card__image").alt = this._name;
+    this._card.querySelector(".card__title").textContent = this._name;
+    this._setEventListeners();
+    return this._card;
   }
 }
