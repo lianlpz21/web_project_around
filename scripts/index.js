@@ -5,6 +5,7 @@ import {
   formPopupRemover,
   initialCards,
 } from "./utils.js";
+import FormValidator from "./FormValidator.js";
 
 // Selección de elementos del DOM
 const profileEditBtn = document.querySelector(".profile__edit-btn");
@@ -21,6 +22,7 @@ const inputTitle = document.querySelector("#input__title");
 const inputImage = document.querySelector("#input__image");
 const closeIcon = document.querySelector(".modal__icon-close");
 const modal = document.querySelector(".modal");
+const formElements = document.querySelectorAll(".popup");
 
 //* Open and close forms functions
 profileEditBtn.addEventListener("click", () => formPopupAdder(editFormOpener));
@@ -64,3 +66,12 @@ closeIcon.addEventListener("click", () => closeModalWindow(modal));
 modal.addEventListener("click", () => closeModalWindow(modal));
 
 //* Validate profile form
+const validation = new FormValidator(formElements, {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__btn",
+  inactiveBtnClass: "popup__btn-disabled",
+  inputErrorClass: "error-active",
+  errorClass: "popup__error",
+});
+
+validation.enableValidation();
