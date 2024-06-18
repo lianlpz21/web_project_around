@@ -13,27 +13,21 @@ export default class FormValidator {
   _toggleButtonState(btnElement, inputs) {
     if (this._hasInvalidInput(inputs)) {
       btnElement.classList.add(this._settings.inactiveButtonClass);
-      btnElement.disabled = true;
     } else {
       btnElement.classList.remove(this._settings.inactiveButtonClass);
-      btnElement.disabled = false;
     }
   }
 
   _showInputError(inputElement, errorMessage, formElement) {
-    this._errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-
+    this._errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(this._settings.inputErrorClass);
-
     this._errorElement.textContent = errorMessage;
-    this._errorElement.classList.add("error-active");
   }
 
   _hideInputError(inputElement, formElement) {
-    this._errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    this._errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(this._settings.inputErrorClass);
     this._errorElement.textContent = "";
-    this._errorElement.classList.remove("error-active");
   }
 
   _checkInputValidity(inputElement, formElement) {
@@ -55,6 +49,8 @@ export default class FormValidator {
     let btnElement = formElement.querySelector(
       this._settings.submitButtonSelector
     );
+
+    console.log(this._settings.submitButtonSelector);
 
     this._toggleButtonState(btnElement, inputs);
 

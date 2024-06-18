@@ -32,7 +32,7 @@
       </section>
 
       <form class="popup" id="form__edit-opener">
-        <button class="popup__icon"></button>
+        <div class="popup__icon" id="profile__popup-icon"></div>
         <fieldset class="popup__container">
           <h3 class="popup__title">Editar perfil</h3>
           <input
@@ -65,7 +65,7 @@
       <div class="overlay"></div>
 
       <form action="#" class="popup" id="form__add-cards-opener">
-        <button class="popup__icon"></button>
+        <div class="popup__icon" id="cards__close-btn"></div>
         <fieldset class="popup__container">
           <h3 class="popup__title">Nuevo lugar</h3>
           <input
@@ -82,7 +82,7 @@
           <span class="error-message" id="input__title-error"></span>
           <input
             required
-            id="input__image"
+            id="input__url"
             class="popup__input"
             type="url"
             placeholder="Enlace a la imagen"

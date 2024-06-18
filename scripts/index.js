@@ -10,7 +10,8 @@ import FormValidator from "./FormValidator.js";
 // Selección de elementos del DOM
 const profileEditBtn = document.querySelector(".profile__edit-btn");
 const addBtn = document.querySelector(".profile__add-btn");
-const closeBtns = document.querySelectorAll(".popup__icon");
+const profileCloseBtn = document.querySelector("#profile__popup-icon");
+const cardsCloseBtn = document.querySelector("#cards__close-btn");
 const editFormOpener = document.querySelector("#form__edit-opener");
 const addFormOpener = document.querySelector("#form__add-cards-opener");
 const overlay = document.querySelector(".overlay");
@@ -28,12 +29,12 @@ const formElements = document.querySelectorAll(".popup");
 profileEditBtn.addEventListener("click", () => formPopupAdder(editFormOpener));
 addBtn.addEventListener("click", () => formPopupAdder(addFormOpener));
 
-closeBtns.forEach((btn) =>
-  btn.addEventListener("click", () => {
-    formPopupRemover(editFormOpener);
-    formPopupRemover(addFormOpener);
-  })
-);
+profileCloseBtn.addEventListener("click", () => {
+  formPopupRemover(editFormOpener);
+});
+cardsCloseBtn.addEventListener("click", () => {
+  formPopupRemover(addFormOpener);
+});
 
 //* Closing after clicking outside the popups
 overlay.addEventListener("click", () => {
@@ -69,9 +70,25 @@ modal.addEventListener("click", () => closeModalWindow(modal));
 const validation = new FormValidator(formElements, {
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__btn",
-  inactiveBtnClass: "popup__btn-disabled",
+  inactiveButtonClass: "popup__btn-disabled",
   inputErrorClass: "error-active",
   errorClass: "popup__error",
 });
-
 validation.enableValidation();
+
+//* Adding new cards in the DOM
+addFormOpener.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const inputTitle = addFormOpener.querySelector("#input__title");
+  const inputUrl = addFormOpener.querySelector("#input__url");
+  const cardData = {
+    name: inputTitle.value,
+    link: inputUrl.value,
+  };
+  const card = new Card(cardData, templateSelector);
+  const cardElement = card.generateCard();
+  cardsContainer.prepend(cardElement);
+  formPopupRemover(addFormOpener);
+  inputTitle.value = "";
+  inputUrl.value = "";
+});
