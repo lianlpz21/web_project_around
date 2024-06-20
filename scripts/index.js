@@ -4,6 +4,7 @@ import {
   formPopupAdder,
   formPopupRemover,
   initialCards,
+  closePopupKey,
 } from "./utils.js";
 import FormValidator from "./FormValidator.js";
 
@@ -26,12 +27,20 @@ const modal = document.querySelector(".modal");
 const formElements = document.querySelectorAll(".popup");
 
 //* Open and close forms functions
-profileEditBtn.addEventListener("click", () => formPopupAdder(editFormOpener));
-addBtn.addEventListener("click", () => formPopupAdder(addFormOpener));
+profileEditBtn.addEventListener("click", () => {
+  formPopupAdder(editFormOpener);
+  closePopupKey(editFormOpener);
+});
+
+addBtn.addEventListener("click", () => {
+  formPopupAdder(addFormOpener);
+  closePopupKey(addFormOpener);
+});
 
 profileCloseBtn.addEventListener("click", () => {
   formPopupRemover(editFormOpener);
 });
+
 cardsCloseBtn.addEventListener("click", () => {
   formPopupRemover(addFormOpener);
 });

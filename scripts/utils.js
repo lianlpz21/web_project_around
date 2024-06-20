@@ -40,3 +40,13 @@ export function formPopupRemover(formElement) {
 export function closeModalWindow(modal) {
   modal.close();
 }
+
+export function closePopupKey(form) {
+  const handleEscapeKey = (evt) => {
+    if (evt.key === "Escape" || evt.key === "Esc") {
+      formPopupRemover(form);
+      document.removeEventListener("keydown", handleEscapeKey);
+    }
+  };
+  document.addEventListener("keydown", handleEscapeKey);
+}
