@@ -8,10 +8,10 @@ import {
   closePopupKey,
 } from "./utils.js";
 import Section from "./Section.js";
-import Popup from "./Popup.js";
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import UserInfo from "./UserInfo.js";
+// import Popup from "./Popup.js";
+// import PopupWithImage from "./PopupWithImage.js";
+// import PopupWithForm from "./PopupWithForm.js";
+// import UserInfo from "./UserInfo.js";
 
 // Selección de elementos del DOM
 const profileEditBtn = document.querySelector(".profile__edit-btn");
@@ -30,6 +30,41 @@ const inputImage = document.querySelector("#input__image");
 const closeIcon = document.querySelector(".modal__icon-close");
 const modal = document.querySelector(".modal");
 const formElements = document.querySelectorAll(".popup");
+
+const cardsContainer = document.querySelector(".cards");
+const templateSelector = "#template";
+
+/*
+//* PopupWithImage instance
+const imagePopup = new PopupWithImage(".modal");
+imagePopup.setEventListeners();
+
+//* Handle card click function
+function handleCardClick(data) {
+  imagePopup.open(data);
+}
+  */
+
+//* Create card function
+function createCard(data) {
+  const card = new Card(data, templateSelector);
+  return card.generateCard();
+}
+
+//* Adding initial cards in the DOM - Instance
+const cardList = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      const cardElement = createCard(data);
+      cardList.addItem(cardElement);
+    },
+  },
+  ".cards"
+);
+
+//* Render of initial cards
+cardList.renderItems();
 
 //* Open and close forms functions
 profileEditBtn.addEventListener("click", () => {
@@ -63,18 +98,6 @@ editFormOpener.addEventListener("submit", (evt) => {
   profileJob.textContent = inputJob.value;
   formPopupRemover(editFormOpener);
 });
-
-//* Adding initial cards in the DOM
-const cardsContainer = document.querySelector(".cards");
-const templateSelector = "#template";
-function addInitialCards(cardsData) {
-  cardsData.forEach((cardData) => {
-    const card = new Card(cardData, templateSelector);
-    const cardElement = card.generateCard();
-    cardsContainer.appendChild(cardElement);
-  });
-}
-addInitialCards(initialCards);
 
 //* Close modal window
 closeIcon.addEventListener("click", () => closeModalWindow(modal));
