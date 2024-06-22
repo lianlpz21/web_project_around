@@ -1,4 +1,5 @@
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 import {
   closeModalWindow,
   formPopupAdder,
@@ -6,7 +7,11 @@ import {
   initialCards,
   closePopupKey,
 } from "./utils.js";
-import FormValidator from "./FormValidator.js";
+import Section from "./Section.js";
+import Popup from "./Popup.js";
+import PopupWithForm from "./PopupWithForm.js";
+import PopupWithImage from "./PopupWithImage.js";
+import UserInfo from "./UserInfo.js";
 
 // Selección de elementos del DOM
 const profileEditBtn = document.querySelector(".profile__edit-btn");
