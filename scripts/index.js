@@ -4,6 +4,7 @@ import Section from "./Section.js";
 import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
+import UserInfo from "./UserInfo.js";
 
 import {
   closeModalWindow,
@@ -33,6 +34,12 @@ const formElements = document.querySelectorAll(".popup");
 const cardsContainer = document.querySelector(".cards");
 const templateSelector = "#template";
 
+//* User info
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  jobSelector: ".profile__occupation",
+});
+
 //* Handle card click function
 function handleCardClick(data) {
   imagePopup.open(data);
@@ -59,16 +66,55 @@ const cardList = new Section(
 //* Render of initial cards
 cardList.renderItems();
 
+//* Validate profile form
+const validation = new FormValidator(formElements, {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__btn",
+  inactiveButtonClass: "popup__btn-disabled",
+  inputErrorClass: "error-active",
+  errorClass: "popup__error",
+});
+validation.enableValidation();
+
+//* PopupWithImage instance
+const imagePopup = new PopupWithImage(".modal");
+imagePopup.setEventListeners();
+
+const profilePopup = new PopupWithForm(".popup#form__edit-opener", {
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo(data);
+  },
+});
+profilePopup.setEventListeners();
+
+//* Instance of PopupWithForm for adding new cards
+const addCardPopup = new PopupWithForm(".popup#form__add-cards-opener", {
+  handleFormSubmit: (data) => {
+    const cardElement = createCard(data);
+    cardList.addItem(cardElement);
+  },
+});
+addCardPopup.setEventListeners();
+
 //* Open and close forms functions
 profileEditBtn.addEventListener("click", () => {
+  //* Get user data
+  const userData = userInfo.getUserInfo();
+
+  //* Pre-fill form with user data
+  inputName.value = userData.name;
+  inputJob.value = userData.job;
+
+  //* Open popup
   formPopupAdder(editFormOpener);
   closePopupKey(editFormOpener);
+  profilePopup.open();
 });
 
 addBtn.addEventListener("click", () => {
-  // formPopupAdder(addFormOpener);
-  addCardPopup.open();
+  formPopupAdder(addFormOpener);
   closePopupKey(addFormOpener);
+  addCardPopup.open();
 });
 
 profileCloseBtn.addEventListener("click", () => {
@@ -96,30 +142,3 @@ editFormOpener.addEventListener("submit", (evt) => {
 //* Close modal window
 closeIcon.addEventListener("click", () => closeModalWindow(modal));
 modal.addEventListener("click", () => closeModalWindow(modal));
-
-//* Validate profile form
-const validation = new FormValidator(formElements, {
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__btn",
-  inactiveButtonClass: "popup__btn-disabled",
-  inputErrorClass: "error-active",
-  errorClass: "popup__error",
-});
-validation.enableValidation();
-
-//* PopupWithImage instance
-const imagePopup = new PopupWithImage(".modal");
-imagePopup.setEventListeners();
-
-//* Instance of PopupWithForm for adding new cards
-const addCardPopup = new PopupWithForm(".popup#form__add-cards-opener", {
-  handleFormSubmit: (data) => {
-    const cardElement = createCard(data);
-    cardList.addItem(cardElement);
-  },
-});
-addCardPopup.setEventListeners();
-
-// addBtn.addEventListener("click", () => {
-//   addCardPopup.open();
-// });

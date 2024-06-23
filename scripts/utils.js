@@ -26,7 +26,7 @@ export const initialCards = [
 ];
 
 export function formPopupAdder(formElement) {
-  formElement.classList.add("popup_opened");
+  // formElement.classList.add("popup_opened");
   const overlay = document.querySelector(".overlay");
   overlay.classList.add("overlay_opened");
 }
