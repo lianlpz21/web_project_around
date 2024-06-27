@@ -5,6 +5,7 @@ import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
+import "./styles/index.css";
 
 import {
   closeModalWindow,
