@@ -1,0 +1,17 @@
+{
+  "name": "web_project_around",
+  "version": "1.0.0",
+  "description": "Nombre proyecto: web_project_around.\r Descripción y funcionalidad: editar perfil de persona y ocupación.\r Descripción de tecolonogías usadas y técnicas usadas: HTML5, css y javascript. Usando metodología BEM.\r Enlace a gitHub page: https://lianlpz21.github.io/web_project_around/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
+}
