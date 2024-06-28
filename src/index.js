@@ -89,10 +89,11 @@ const profilePopup = new PopupWithForm(".popup#form__edit-opener", {
 profilePopup.setEventListeners();
 
 //* Instance of PopupWithForm for adding new cards
-const addCardPopup = new PopupWithForm(".popup#form__add-cards-opener", {
+const addCardPopup = new PopupWithForm("#form__add-cards-opener", {
   handleFormSubmit: (data) => {
     const cardElement = createCard(data);
     cardList.addItem(cardElement);
+    addCardPopup.close();
   },
 });
 addCardPopup.setEventListeners();
