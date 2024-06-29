@@ -2,20 +2,20 @@ import Popup from "./Popup.js";
 import { formPopupRemover } from "./utils.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, { handleFormSubmit }) {
+  constructor(popupSelector, firstInput, secondInput, { handleFormSubmit }) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
-    this._form = this._popup.querySelector(".popup__container").closest("form");
-    this._inputTitle = this._form.querySelector("#input__title");
-    this._inputUrl = this._form.querySelector("#input__url");
-    this._inputList = this._form.querySelectorAll(".popup__input-cards");
+    this._form = document.querySelector(popupSelector);
+    this._inputTitle = this._form.querySelector(firstInput);
+    this._inputUrl = this._form.querySelector(secondInput);
+    this._inputList = this._form.querySelectorAll("input");
     this._submitButton = this._form.querySelector(".popup__btn");
   }
 
   _getInputValues() {
     const inputValues = {
-      name: this._inputTitle.value,
-      link: this._inputUrl.value,
+      [this._inputTitle.name]: this._inputTitle ? this._inputTitle.value : "",
+      [this._inputUrl.name]: this._inputUrl ? this._inputUrl.value : "",
     };
     return inputValues;
   }
@@ -24,9 +24,7 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      const { name, link } = this._getInputValues();
-
-      this._handleFormSubmit({ name, link });
+      this._handleFormSubmit({ ...this._getInputValues() });
       this.close();
     });
 

@@ -28,7 +28,7 @@ const inputJob = document.querySelector("#input__job");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__occupation");
 const inputTitle = document.querySelector("#input__title");
-const inputImage = document.querySelector("#input__image");
+const inputUrl = document.querySelector("#input__url");
 const closeIcon = document.querySelector(".modal__icon-close");
 const modal = document.querySelector(".modal");
 const formElements = document.querySelectorAll(".popup");
@@ -81,21 +81,31 @@ validation.enableValidation();
 const imagePopup = new PopupWithImage(".modal");
 imagePopup.setEventListeners();
 
-const profilePopup = new PopupWithForm(".popup#form__edit-opener", {
-  handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data);
-  },
-});
+const profilePopup = new PopupWithForm(
+  "#form__edit-opener",
+  "#input__name",
+  "#input__job",
+  {
+    handleFormSubmit: (data) => {
+      userInfo.setUserInfo(data);
+    },
+  }
+);
 profilePopup.setEventListeners();
 
 //* Instance of PopupWithForm for adding new cards
-const addCardPopup = new PopupWithForm("#form__add-cards-opener", {
-  handleFormSubmit: (data) => {
-    const cardElement = createCard(data);
-    cardList.addItem(cardElement);
-    addCardPopup.close();
-  },
-});
+const addCardPopup = new PopupWithForm(
+  "#form__add-cards-opener",
+  "#input__title",
+  "#input__url",
+  {
+    handleFormSubmit: (data) => {
+      const cardElement = createCard(data);
+      cardList.addItem(cardElement);
+      addCardPopup.close();
+    },
+  }
+);
 addCardPopup.setEventListeners();
 
 //* Open and close forms functions
@@ -131,14 +141,6 @@ cardsCloseBtn.addEventListener("click", () => {
 overlay.addEventListener("click", () => {
   formPopupRemover(editFormOpener);
   formPopupRemover(addFormOpener);
-});
-
-//* Sending personal info in form
-editFormOpener.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  profileName.textContent = inputName.value;
-  profileJob.textContent = inputJob.value;
-  formPopupRemover(editFormOpener);
 });
 
 //* Close modal window
