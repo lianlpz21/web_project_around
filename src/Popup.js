@@ -21,9 +21,9 @@ export default class Popup {
   }
 
   setEventListeners() {
-    const popup = this._popup.querySelector(".popup__icon");
+    const popup = this._popup.querySelectorAll("button");
 
-    popup.addEventListener("click", () => {
+    popup[0].addEventListener("click", () => {
       this.close();
     });
     this._popup.addEventListener("mousedown", (evt) => {
